@@ -18,5 +18,5 @@ El usuario accede a un administrador de proyectos para realizar la gestión, pue
 
 ## Definiciones técnicas
 * Debe estar realizado en un framework de JS, Angular o React.
-* La aplicación debe estar publicada y debe ser accesible mediante un link(Ver Netfly, Heroku) o cualquier webserver.
+* La aplicación debe estar publicada y debe ser accesible mediante un link(Ver Netlify, Heroku) o cualquier webserver.
 * El código de la aplicación debe estar subida a un repositorio de público acceso.

@@ -1,6 +1,7 @@
 ![Estoes](assets/images/logo.png "Esto es Agencia Digital")
 # Frontend challenge
 Se debe realizar el frontend de una plataforma que que tiene como objetivo realizar la gestión de proyectos.
+Si bien no hay restricción de tiempo, creemos que de 3 a 5 horas es un tiempo razonable para hacerlo calidad.
 
 ## Diseño
 Podés encontrar el diseño [acá](https://www.figma.com/file/YLDHikbDgfsZbVdEbO0H6U/Full-Stack-Test-1?node-id=1%3A1701).

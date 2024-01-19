@@ -17,8 +17,8 @@ html {
 }
 
 body {
-  line-height: 1.5;
   font-family: 'Roboto', sans-serif;
+  background: $background;
 }
 
 input, button, textarea, select {
@@ -31,4 +31,8 @@ button {
 
 h1 {
   font-family: 'Inter', sans-serif;
+  color: $heading-color;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 32px;
 }

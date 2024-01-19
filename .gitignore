@@ -5,26 +5,44 @@
 
 # Node artifact files
 node_modules/
-dist/
+npm-debug.log
+yarn-error.log
 
-# Compiled Java class files
-*.class
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
 
-# Compiled Python bytecode
-*.py[cod]
+# Visual Studio Code
+.vscode/*
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
 
 # Log files
 *.log
 
-# Package files
-*.jar
-
-# Maven
-target/
-dist/
-
-# JetBrains IDE
+# IDEs and editors
 .idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
 # Unit test reports
 TEST*.xml

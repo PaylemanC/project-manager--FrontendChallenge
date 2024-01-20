@@ -1,0 +1,22 @@
+@import 'src/styles.scss';
+
+.logo--container {
+  background: white;
+  padding: 12px 48px;
+  border-bottom: 1px solid #D9D9D9;
+}
+
+.logo {
+  color: #BDBDBD;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 32px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 360px) {
+  .logo--container {
+    padding: 4px 16px;
+  }
+}

@@ -7,6 +7,7 @@ import { SubheaderComponent } from './components/subheader/subheader.component';
 import { ProjectsListComponent } from './pages/projects-list/projects-list.component';
 import { NewProjectComponent } from './pages/new-project/new-project.component';
 import { ProjectFormComponent } from './components/project-form/project-form.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ProjectFormComponent } from './components/project-form/project-form.com
     SubheaderComponent,
     ProjectsListComponent,
     NewProjectComponent,
-    ProjectFormComponent
+    ProjectFormComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,

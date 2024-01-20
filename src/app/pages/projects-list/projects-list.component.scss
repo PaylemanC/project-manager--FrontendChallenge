@@ -1,0 +1,32 @@
+@import 'src/styles.scss';
+
+.projects-list {
+  background-color: white;
+  margin-top: 32px;
+  max-width: 1344px;
+  border-radius: 4px;
+  box-shadow: $component-shadow;
+}
+
+.projects-list__header {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 12px;
+  background: rgba(0, 0, 0, 0.02);
+  box-shadow: $item-shadow;
+}
+
+.projects-list__body {
+  background-color: white;
+}
+
+@media (max-width: 375px) {
+  .projects-list {
+    margin: 12px 0;
+    border-radius: 0;
+  }
+
+  .projects-list__header {
+    display: none;
+  }
+}

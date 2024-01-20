@@ -1,5 +1,10 @@
 @import 'src/styles.scss';
 
+main {
+  display: flex;
+  justify-content: center;
+}
+
 .logo--container {
   background: white;
   padding: 12px 48px;

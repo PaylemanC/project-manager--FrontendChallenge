@@ -6,7 +6,7 @@
 }
 
 .subheader {
-  box-shadow: 0px -1px 0px 0px #D9D9D9 inset;
+  box-shadow: $item-shadow;
   display: flex;
   justify-content: space-between;
   align-items: center;

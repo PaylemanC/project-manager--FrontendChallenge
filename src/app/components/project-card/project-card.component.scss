@@ -1,8 +1,94 @@
+@mixin images ($image, $width, $height) {
+  display: inline-block;
+  width: $width;
+  height: $height;
+  background: url('#{$image}') no-repeat center/cover;
+}
 @import 'src/app/pages/projects-list/projects-list.component.scss';
 
 .project-card {
   @each $property, $value in $project-structure {
     #{$property}: $value;
+  }
+  box-shadow: $item-shadow;
+  padding: 10px 24px 11px;
+  align-items: center;
+}
+
+.project-title, .project-card__manager, .project-card__assigned {
+  color: $text-color;
+  font-size: 1.4rem;
+  line-height: 22px;
+}
+
+.project-date {
+  color: $text-secondary;
+  font-size: 1.2rem;
+  line-height: 20px;
+}
+
+.project-card__manager, .project-card__assigned {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-manager--pic {
+  @include images('../../../assets/images/manager.png', 24px, 24px)
+}
+
+.project-assigned--pic {
+  @include images('../../../assets/images/assigned.png', 24px, 24px)
+}
+
+.project-card__status {
+  border-radius: 4px;
+  border: 1px solid #D9D9D9;
+  background: #F5F5F5;
+  padding: 1px 8px;
+  width: fit-content;
+  height: fit-content;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.project-card__action {
+  position: relative;
+  svg {
+    cursor: pointer;
+  }
+}
+
+.menu {
+  border-radius: 4px;
+  background: white;
+  box-shadow: $component-shadow;
+  position: absolute;
+  z-index: 1;
+  left: -150px;
+  &-delete {
+    border: none;
+  }
+  &-edit {
+    text-decoration: none;
+  }
+  &-edit, &-delete {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #262626;
+    background-color: white;
+    font-size: 1.2rem;
+    line-height: 20px;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 9px 16px;
+    width: 181px;
+  }
+  .menu-edit--icon {
+    @include images('../../../assets/icons/edit.svg', 16px, 16px)
+  }
+  .menu-delete--icon {
+    @include images('../../../assets/icons/delete.svg', 16px, 16px)
   }
 }
 
@@ -22,11 +108,17 @@
 
     &__assigned {
       grid-area: 2 / 1 / 3 / 3;
+      font-size: 1.2rem;
     }
 
     &__action {
       grid-area: 1 / 2 / 2 / 3;
       justify-self: end;
     }
+  }
+
+  .project-date {
+    line-height: 16px;
+    font-size: 1rem;
   }
 }

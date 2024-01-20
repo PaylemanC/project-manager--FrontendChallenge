@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./project-card.component.scss']
 })
 export class ProjectCardComponent {
+  showMenu = false;
 
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+  }
 }

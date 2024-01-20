@@ -4,11 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SubheaderComponent } from './components/subheader/subheader.component';
+import { ProjectsListComponent } from './pages/projects-list/projects-list.component';
+import { NewProjectComponent } from './pages/new-project/new-project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SubheaderComponent
+    SubheaderComponent,
+    ProjectsListComponent,
+    NewProjectComponent
   ],
   imports: [
     BrowserModule,

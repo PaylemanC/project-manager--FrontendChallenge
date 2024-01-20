@@ -8,8 +8,9 @@
 .subheader {
   box-shadow: $item-shadow;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 24px;
 }
 
 .subheader-title {
@@ -20,12 +21,20 @@
   display: flex;
   gap: 4px;
   align-items: center;
-  line-height: 26px;
+  line-height: 24px;
   span {
-    font-size: 2rem;
-    width: 16px;
+    width: 24px;
     height: 24px;
+    background: url('../../../assets/icons/back-arrow.svg') no-repeat center/cover;
   }
+}
+
+.back-btn {
+  color: $text-color;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  line-height: 22px; 
+  text-decoration: none;
 }
 
 @media (max-width: 360px) {
@@ -34,11 +43,8 @@
   }
 
   .subheader-button {
+    line-height: 16px;
     padding: 8px;
     font-size: 1.2rem;
-    line-height: 16px;
-    span {
-      height: 16px;
-    }
   }
 }

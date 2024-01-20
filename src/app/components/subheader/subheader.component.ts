@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-subheader',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./subheader.component.scss']
 })
 export class SubheaderComponent {
-
+  @Input() title: string = '';
 }

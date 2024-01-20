@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-project.component.scss']
 })
 export class NewProjectComponent {
-
+  titleSubheader: string = 'Add project';
 }

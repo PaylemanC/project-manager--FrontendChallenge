@@ -1,4 +1,20 @@
-@import 'src/styles.scss';
+@import 'src/app/app.component.scss';
+@import 'src/app/components/subheader/subheader.component.scss';
+
+.subheader {
+  justify-content: space-between;
+}
+
+.subheader-button {
+  line-height: 26px;
+  span {
+    background: none;
+    width: 16px;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 24px; 
+  }
+}
 
 .projects-list {
   background-color: white;
@@ -32,5 +48,13 @@
 
   .projects-list__header {
     display: none;
+  }
+
+  .subheader-button {    
+    line-height: 16px;
+    span {
+      height: 16px;      
+      line-height: 16px;
+    }
   }
 }

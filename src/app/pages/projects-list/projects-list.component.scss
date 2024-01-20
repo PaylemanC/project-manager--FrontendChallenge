@@ -9,15 +9,11 @@
 }
 
 .projects-list__header {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 12px;
+  @each $property, $value in $project-structure {
+    #{$property}: $value;
+  }
   background: rgba(0, 0, 0, 0.02);
   box-shadow: $item-shadow;
-}
-
-.projects-list__body {
-  background-color: white;
 }
 
 @media (max-width: 375px) {

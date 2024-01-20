@@ -1,7 +1,9 @@
 @import 'src/app/pages/projects-list/projects-list.component.scss';
 
 .project-card {
-  @extend .projects-list__header;
+  @each $property, $value in $project-structure {
+    #{$property}: $value;
+  }
 }
 
 @media (max-width: 375px) {

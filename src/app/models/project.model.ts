@@ -6,5 +6,5 @@ export interface Project {
   creationDate: Date;
   manager: string;
   assigned: string;
-  status: 'Enabled'| 'Disabled';
+  status: 'enabled'| 'disabled';
 }

@@ -1,29 +1,29 @@
-<form class="project-form">
+<form class="project-form" [formGroup]="projectForm" (ngSubmit)="addProject($event)">
   <div class="project-form__group project__name">
-    <label for="name">Project name</label>
-    <input type="text" id="name" name="name">
+    <label for="title">Project name</label>
+    <input type="text" id="title" name="title" formControlName="title">
   </div>
   <div class="project-form__group project__description">
     <label for="description">Description</label>
-    <input id="description" name="description">
+    <input id="description" name="description" formControlName="description">
   </div>
   <div class="project-form__group project__manager">
     <label for="manager">Project manager</label>
-    <select id="manager" name="manager">
+    <select id="manager" name="manager" formControlName="manager">
       <option value="Select a person">Select a person</option>
       <option value="Walt Cosani">Walt Cosani</option>
     </select>
   </div>
   <div class="project-form__group project__asigned">
     <label for="asigned">Assigned to</label>
-    <select id="asigned" name="asigned">
+    <select id="asigned" name="asigned" placeholder="Select a person" formControlName="assigned">
       <option value="Select a person">Select a person</option>
       <option value="Ignacio Truffa">Ignacio Truffa</option>
     </select>
   </div>
   <div class="project-form__group project__status">
     <label for="status">Status</label>
-    <select id="status" name="status">
+    <select id="status" name="status" formControlName="status">
       <option value="enabled">Enabled</option>
       <option value="disabled">Disabled</option>
     </select>

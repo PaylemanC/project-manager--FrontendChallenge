@@ -12,7 +12,7 @@
     width: 16px;
     text-align: center;
     font-size: 2rem;
-    line-height: 24px; 
+    line-height: 24px;
   }
 }
 
@@ -40,7 +40,7 @@
   line-height: 22px;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 425px) {
   .projects-list {
     margin: 12px 0;
     border-radius: 0;
@@ -50,10 +50,10 @@
     display: none;
   }
 
-  .subheader-button {    
+  .subheader-button {
     line-height: 16px;
     span {
-      height: 16px;      
+      height: 16px;
       line-height: 16px;
     }
   }

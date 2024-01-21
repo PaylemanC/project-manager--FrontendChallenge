@@ -33,11 +33,11 @@
   color: $text-color;
   font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
-  line-height: 22px; 
+  line-height: 22px;
   text-decoration: none;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 425px) {
   .subheader-title {
     font-size: 1.6rem;
   }

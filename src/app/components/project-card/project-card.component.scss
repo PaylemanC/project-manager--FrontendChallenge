@@ -50,6 +50,7 @@
   height: fit-content;
   font-size: 1.2rem;
   line-height: 2rem;
+  text-transform: capitalize;
 }
 
 .project-card__action {
@@ -92,11 +93,12 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 425px) {
   .project-card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 95% 5%;
     grid-template-rows: 1fr 1fr;
+    gap: 5px 16px;
 
     &__manager, &__status {
       display: none;

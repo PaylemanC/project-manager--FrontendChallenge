@@ -8,6 +8,7 @@
   flex-direction: column;
   gap: 16px;
   margin-top: 16px;
+  max-width: 664px;
 }
 
 .project-form__group {
@@ -53,13 +54,12 @@ input, select {
 .input-caption {
   color: #8C8C8C;
   font-size: 1.4rem;
-  line-height: 22px; 
-} 
+  line-height: 22px;
+}
 
-@media (min-width: 768px) {
+@media (min-width: 425px) {
   .project-form {
     border-radius: 4px;
-    width: 664px;
     margin: 24px 0;
   }
 }

@@ -1,4 +1,4 @@
-<form class="project-form" [formGroup]="projectForm" (ngSubmit)="addProject($event)">
+<form class="project-form" [formGroup]="projectForm" (ngSubmit)="onSubmit($event)">
   <div class="project-form__group project__name">
     <label for="title">Project name</label>
     <input type="text" id="title" name="title" formControlName="title">

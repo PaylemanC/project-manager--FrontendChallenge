@@ -10,7 +10,11 @@ import { ProjectService } from 'src/app/services/project.service';
 export class ProjectsListComponent {
   projects: Project[] = []
 
-  constructor(private projectService: ProjectService) {
-    this.projects = this.projectService.getProjects();
+  constructor(private projectService: ProjectService) { }
+
+  ngOnInit() {
+    this.projectService.projects$.subscribe((projects) => {
+      this.projects = projects;
+    });
   }
 }

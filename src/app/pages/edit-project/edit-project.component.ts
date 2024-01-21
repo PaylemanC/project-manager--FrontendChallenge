@@ -6,8 +6,10 @@ import { Project } from 'src/app/models/project.model';
 @Component({
   selector: 'app-edit-project',
   template: `<app-subheader [title]="titleSubheader"></app-subheader>
-  <div class="project-form--container">
-    <app-project-form [createMode]="false" [project]="project"></app-project-form>
+  <div class="container--centered">
+    <section class="project-form--container">
+      <app-project-form [createMode]="false" [project]="project"></app-project-form>
+    </section>
   </div>`,
   styleUrls: ['./edit-project.component.scss']
 })

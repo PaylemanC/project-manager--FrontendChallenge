@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/models/project.model';
@@ -17,6 +17,7 @@ export class ProjectFormComponent {
     assigned: ['', this.personSelected],
     status: ['enabled']
   });
+  @Input() createMode: boolean = true;
 
   constructor(private formBuilder: FormBuilder, private projectService: ProjectService, private router: Router) { }
 
@@ -30,19 +31,52 @@ export class ProjectFormComponent {
 
   onSubmit(event: Event): void {
     event.preventDefault();
-    if (this.projectForm.valid) {
-      const newProject: Project = {
-        title: this.projectForm.value.title!,
-        description: this.projectForm.value.description!,
-        creationDate: new Date(),
-        manager: this.projectForm.value.manager!,
-        assigned: this.projectForm.value.assigned!,
-        status: this.projectForm.value.status as 'enabled' | 'disabled'
-      }
-      this.projectService.addProject(newProject);
-      this.router.navigate(['/']);
-    } else {
+    if (!this.projectForm.valid) {
       this.projectForm.markAllAsTouched();
+      return;
     }
+
+    if (this.createMode) {
+      this.createProject();
+    } else {
+      this.editProject();
+    }
+  }
+
+  private createProject() {
+    const newProject: Project = {
+      title: this.projectForm.value.title!,
+      description: this.projectForm.value.description!,
+      creationDate: new Date(),
+      manager: this.projectForm.value.manager!,
+      assigned: this.projectForm.value.assigned!,
+      status: this.projectForm.value.status as 'enabled' | 'disabled'
+    }
+    this.projectService.addProject(newProject);
+    this.router.navigate(['/']);
+  }
+
+  private editProject() {
+    console.log('Editando...');
+  }
+
+  get title() {
+    return this.projectForm.get('title');
+  }
+
+  get description() {
+    return this.projectForm.get('description');
+  }
+
+  get manager() {
+    return this.projectForm.get('manager');
+  }
+
+  get assigned() {
+    return this.projectForm.get('assigned');
+  }
+
+  get status() {
+    return this.projectForm.get('status');
   }
 }

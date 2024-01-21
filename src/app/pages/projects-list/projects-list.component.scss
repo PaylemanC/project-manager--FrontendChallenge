@@ -16,9 +16,16 @@
   }
 }
 
+.search-bar {
+  margin: 12px 32px;
+}
+
+.input-icon {
+  background: url('../../../assets/icons/search.svg') no-repeat center/cover;
+}
+
 .projects-list {
   background-color: white;
-  margin-top: 32px;
   width: 93vw;
   border-radius: 4px;
   box-shadow: $component-shadow;
@@ -41,8 +48,11 @@
 }
 
 @media (max-width: 425px) {
+  .search-bar {
+    margin: 4px 12px;
+  }
+
   .projects-list {
-    margin: 12px 0;
     border-radius: 0;
     width: 100%;
   }

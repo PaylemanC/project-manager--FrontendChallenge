@@ -24,31 +24,11 @@ label {
   line-height: 22px;
 }
 
-.input-container {
-  position: relative;
-}
-
-input, select {
-  padding: 8px 12px;
-  font-size: 1.6rem;
-  line-height: 24px;
-  border-radius: 4px;
-  border: 1px solid #D9D9D9;
-  width: 100%;
-}
-
 .error {
   border: 1px solid $dust-red;
 }
 
-.error-icon {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
+.input-icon {
   background: url('../../../assets/icons/error.svg') no-repeat center/cover;
 }
 

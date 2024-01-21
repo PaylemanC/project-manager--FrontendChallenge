@@ -19,7 +19,7 @@
 .projects-list {
   background-color: white;
   margin-top: 32px;
-  max-width: 1344px;
+  width: 93vw;
   border-radius: 4px;
   box-shadow: $component-shadow;
 }
@@ -44,6 +44,7 @@
   .projects-list {
     margin: 12px 0;
     border-radius: 0;
+    width: 100%;
   }
 
   .projects-list__header {

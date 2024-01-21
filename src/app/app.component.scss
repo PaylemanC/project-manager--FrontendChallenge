@@ -26,6 +26,11 @@
   line-height: 24px;
 }
 
+.container--centered {
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 360px) {
   .logo--container {
     padding: 4px 16px;

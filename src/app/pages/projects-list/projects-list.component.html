@@ -2,15 +2,17 @@
   <h1 class="subheader-title">My projects</h1>
   <a routerLink="/new-project" class="default-btn subheader-button"><span>+</span>Add project</a>
 </header>
-<section class="projects-list">
-  <div class="projects-list__header">
-    <p class="projects-list__header-title">Project info</p>
-    <p class="projects-list__header-title">Project Manager</p>
-    <p class="projects-list__header-title">Assigned to</p>
-    <p class="projects-list__header-title">Status</p>
-    <p class="projects-list__header-title">Action</p>
-  </div>
-  <div class="projects-list__body"  *ngIf="projects.length > 0">
-    <app-project-card *ngFor="let project of projects" [project]="project"></app-project-card>
-  </div>
-</section>
+<div class="container--centered">
+  <section class="projects-list">
+    <div class="projects-list__header">
+      <p class="projects-list__header-title">Project info</p>
+      <p class="projects-list__header-title">Project Manager</p>
+      <p class="projects-list__header-title">Assigned to</p>
+      <p class="projects-list__header-title">Status</p>
+      <p class="projects-list__header-title">Action</p>
+    </div>
+    <div class="projects-list__body"  *ngIf="projects.length > 0">
+      <app-project-card *ngFor="let project of projects" [project]="project"></app-project-card>
+    </div>
+  </section>
+</div>

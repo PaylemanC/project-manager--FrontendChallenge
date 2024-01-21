@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Project } from '../models/project.model';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,38 @@ export class ProjectService {
     const storedProjects = localStorage.getItem('projects');
     if (storedProjects) {
       this.projectsSubject.next(JSON.parse(storedProjects));
+    } else {
+      const defaultProjects: Project[] = [
+        {
+          id: uuidv4(),
+          title: 'Landing page',
+          description: 'Some description.',
+          creationDate: new Date(),
+          manager: 'Walt Cosani',
+          assigned: 'Ignacio Truffa',
+          status: 'enabled'
+        },
+        {
+          id: uuidv4(),
+          title: 'E-Commerce Shop',
+          description: 'Some description.',
+          creationDate: new Date(),
+          manager: 'Walt Cosani',
+          assigned: 'Ignacio Truffa',
+          status: 'enabled'
+        },
+        {
+          id: uuidv4(),
+          title: 'CRM Linkroom',
+          description: 'Some description.',
+          creationDate: new Date(),
+          manager: 'Walt Cosani',
+          assigned: 'Ignacio Truffa',
+          status: 'enabled'
+        }
+      ];
+      this.projectsSubject.next(defaultProjects);
+      this.saveProjectsToStorage(defaultProjects);
     }
   }
 

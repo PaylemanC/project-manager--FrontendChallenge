@@ -1,7 +1,7 @@
 <div class="project-card">
   <div class="project-card__info">
     <p class="project-title">{{ project.title }}</p>
-    <p class="project-date">Creation date: {{ project.creationDate }}</p>
+    <p class="project-date">Creation date: {{ project.creationDate | date: 'dd/MM/yyyy HH:mm a' }}</p>
   </div>
   <p class="project-card__manager"><span class="project-manager--pic"></span>{{project.manager}} </p>
   <p class="project-card__assigned"><span class="project-assigned--pic"></span>{{project.assigned}} </p>

@@ -14,7 +14,11 @@ export class ProjectsListComponent {
 
   ngOnInit() {
     this.projectService.projects$.subscribe((projects) => {
-      this.projects = projects;
+      this.projects = projects.sort((a, b) => {
+        const dateA = new Date(a.creationDate).getTime();
+        const dateB = new Date(b.creationDate).getTime();
+        return dateB - dateA;
+      });
     });
   }
 }

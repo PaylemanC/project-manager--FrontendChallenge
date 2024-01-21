@@ -9,10 +9,11 @@ import { Project } from 'src/app/models/project.model';
 export class ProjectCardComponent {
   showMenu = false;
   @Input() project: Project = {
+    id: '',
     title: '',
     description: '',
     creationDate: new Date(),
-    manager: '', 
+    manager: '',
     assigned: '',
     status: 'enabled'
   }

@@ -3,6 +3,7 @@ import { FormBuilder, Validators, AbstractControl, ValidationErrors } from '@ang
 import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/models/project.model';
 import { Router } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-project-form',
@@ -45,6 +46,7 @@ export class ProjectFormComponent {
 
   private createProject() {
     const newProject: Project = {
+      id: uuidv4(),
       title: this.projectForm.value.title!,
       description: this.projectForm.value.description!,
       creationDate: new Date(),

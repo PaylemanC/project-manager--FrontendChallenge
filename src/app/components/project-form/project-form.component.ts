@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/models/project.model';
@@ -19,6 +19,15 @@ export class ProjectFormComponent {
     status: ['enabled']
   });
   @Input() createMode: boolean = true;
+  @Input() project: Project = {
+    id: '',
+    title: '',
+    description: '',
+    creationDate: new Date(),
+    manager: '',
+    assigned: '',
+    status: 'enabled'
+  };
 
   constructor(private formBuilder: FormBuilder, private projectService: ProjectService, private router: Router) { }
 
@@ -28,6 +37,18 @@ export class ProjectFormComponent {
       return { personNotSelected: true };
     }
     return null;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['project'] && this.project) {
+      this.projectForm.patchValue({
+        title: this.project.title,
+        description: this.project.description,
+        manager: this.project.manager,
+        assigned: this.project.assigned,
+        status: this.project.status,
+      });
+    }
   }
 
   onSubmit(event: Event): void {
@@ -59,7 +80,18 @@ export class ProjectFormComponent {
   }
 
   private editProject() {
-    console.log('Editando...');
+    const updatedProject: Project = {
+      ...this.project,
+      ...this.projectForm.value,
+      title: this.projectForm.value.title ?? '',
+      description: this.projectForm.value.description ?? '',
+      manager: this.projectForm.value.manager ?? '',
+      assigned: this.projectForm.value.assigned ?? '',
+      status: this.projectForm.value.status === 'enabled' || this.projectForm.value.status === 'disabled'
+      ? this.projectForm.value.status : 'enabled'
+    };
+    this.projectService.updateProject(updatedProject);
+    this.router.navigate(['/']);
   }
 
   get title() {

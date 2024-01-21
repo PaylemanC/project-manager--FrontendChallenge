@@ -28,6 +28,11 @@ export class ProjectService {
     return this.projectsSubject.getValue();
   }
 
+  getProjectById(projectId: string) {
+    const projects = this.getProjects();
+    return projects.find((project) => project.id === projectId);
+  }
+
   addProject(newProject: Project) {
     const currentProjects = this.getProjects();
     const updatedProjects = [...currentProjects, newProject];
@@ -38,6 +43,15 @@ export class ProjectService {
   deleteProject(projectId: string) {
     const currentProjects = this.getProjects();
     const updatedProjects = currentProjects.filter(project => project.id !== projectId);
+    this.projectsSubject.next(updatedProjects);
+    this.saveProjectsToStorage(updatedProjects);
+  }
+
+  updateProject(updatedProject: Project) {
+    const currentProjects = this.getProjects();
+    const updatedProjects = currentProjects.map((project) =>
+      project.id === updatedProject.id ? { ...project, ...updatedProject } : project
+    );
     this.projectsSubject.next(updatedProjects);
     this.saveProjectsToStorage(updatedProjects);
   }

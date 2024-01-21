@@ -12,7 +12,7 @@
     </svg>
     <div *ngIf="showMenu" class="menu">
       <a href="#" class="menu-edit"><span class="menu-edit--icon"></span>Edit</a>
-      <button type="button" class="menu-delete"><span class="menu-delete--icon"></span>Delete</button>
+      <button type="button" class="menu-delete" (click)="deleteProject()"><span class="menu-delete--icon"></span>Delete</button>
     </div>
   </div>
 </div>

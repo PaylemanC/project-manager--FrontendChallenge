@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Project } from 'src/app/models/project.model';
+import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
   selector: 'app-project-card',
@@ -18,7 +19,13 @@ export class ProjectCardComponent {
     status: 'enabled'
   }
 
+  constructor(private projectService: ProjectService) {}
+
   toggleMenu() {
     this.showMenu = !this.showMenu;
+  }
+
+  deleteProject() {
+    this.projectService.deleteProject(this.project.id);
   }
 }

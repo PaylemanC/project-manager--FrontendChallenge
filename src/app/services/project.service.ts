@@ -9,16 +9,36 @@ export class ProjectService {
   private projectsSubject = new BehaviorSubject<Project[]>([]);
   projects$: Observable<Project[]> = this.projectsSubject.asObservable();
 
-  constructor() { }
+  constructor() {
+    this.getStoredProjects();
+  }
+
+  private getStoredProjects() {
+    const storedProjects = localStorage.getItem('projects');
+    if (storedProjects) {
+      this.projectsSubject.next(JSON.parse(storedProjects));
+    }
+  }
+
+  private saveProjectsToStorage(projects: Project[]) {
+    localStorage.setItem('projects', JSON.stringify(projects));
+  }
 
   getProjects(): Project[] {
     return this.projectsSubject.getValue();
   }
 
-  addProject(newProject: Project): void {
+  addProject(newProject: Project) {
     const currentProjects = this.getProjects();
     const updatedProjects = [...currentProjects, newProject];
     this.projectsSubject.next(updatedProjects);
-    localStorage.setItem('projects', JSON.stringify(updatedProjects));
-  }    
+    this.saveProjectsToStorage(updatedProjects);
+  }
+
+  deleteProject(projectId: string) {
+    const currentProjects = this.getProjects();
+    const updatedProjects = currentProjects.filter(project => project.id !== projectId);
+    this.projectsSubject.next(updatedProjects);
+    this.saveProjectsToStorage(updatedProjects);
+  }
 }

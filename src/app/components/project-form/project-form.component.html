@@ -2,34 +2,34 @@
   <div class="project-form__group project__name">
     <label for="title">Project name</label>
     <div class="input-container">
-      <input type="text" id="title" name="title" formControlName="title" [ngClass]="{'error': projectForm.get('title')?.invalid && projectForm.get('title')?.touched}" >
-      <span *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched" class="error-icon"></span>
+      <input type="text" id="title" name="title" formControlName="title" [ngClass]="{'error': title?.invalid && title?.touched}" required>
+      <span *ngIf="title?.invalid && title?.touched" class="error-icon"></span>
     </div>
-    <p class="input-caption" *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched">Required field.</p>
+    <p class="input-caption" *ngIf="title?.invalid && title?.touched">Required field.</p>
   </div>
   <div class="project-form__group project__description">
     <label for="description">Description</label>
     <div class="input-container">
-      <input id="description" name="description" formControlName="description" [ngClass]="{'error': projectForm.get('title')?.invalid && projectForm.get('title')?.touched}">
-      <span *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched" class="error-icon"></span>
+      <input id="description" name="description" formControlName="description" [ngClass]="{'error': description?.invalid && description?.touched}" required>
+      <span *ngIf="description?.invalid && description?.touched" class="error-icon"></span>
     </div>
-    <p class="input-caption" *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched">Required field.</p>
+    <p class="input-caption" *ngIf="description?.invalid && description?.touched">Required field.</p>
   </div>
   <div class="project-form__group project__manager">
     <label for="manager">Project manager</label>
-    <select id="manager" name="manager" formControlName="manager" [ngClass]="{'error': projectForm.get('manager')?.invalid && projectForm.get('manager')?.touched}">
+    <select id="manager" name="manager" formControlName="manager" [ngClass]="{'error': manager?.invalid && manager?.touched}">
       <option value="" disabled selected>Select a person</option>
       <option value="Walt Cosani">Walt Cosani</option>
     </select>
-    <p class="input-caption" *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched">Select a project manager.</p>
+    <p class="input-caption" *ngIf="manager?.invalid && manager?.touched">Select a project manager.</p>
   </div>
   <div class="project-form__group project__asigned">
     <label for="assigned">Assigned to</label>
-    <select id="assigned" name="assigned" formControlName="assigned" [ngClass]="{'error': projectForm.get('assigned')?.invalid && projectForm.get('assigned')?.touched}">
+    <select id="assigned" name="assigned" formControlName="assigned" [ngClass]="{'error': assigned?.invalid && assigned?.touched}">
       <option value="" disabled selected>Select a person</option>
       <option value="Ignacio Truffa">Ignacio Truffa</option>
     </select>
-    <p *ngIf="projectForm.get('assigned')?.hasError('personNotSelected') && projectForm.get('assigned')?.touched" class="input-caption"> Select a person to assign.</p>
+    <p *ngIf="assigned?.hasError('personNotSelected') && assigned?.touched" class="input-caption"> Select a person to assign.</p>
   </div>
   <div class="project-form__group project__status">
     <label for="status">Status</label>

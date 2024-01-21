@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/models/project.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-form',
@@ -12,18 +13,24 @@ export class ProjectFormComponent {
   projectForm = this.formBuilder.group({
     title: ['', Validators.required],
     description: ['', Validators.required],
-    manager: [''],
-    assigned: [''],
-    status: ['']
+    manager: ['', this.personSelected],
+    assigned: ['', this.personSelected],
+    status: ['enabled']
   });
 
-  constructor(private formBuilder: FormBuilder, private projectService: ProjectService) { }
+  constructor(private formBuilder: FormBuilder, private projectService: ProjectService, private router: Router) { }
+
+  personSelected(control: AbstractControl): ValidationErrors | null {
+    const selectedPerson = control.value;
+    if (!selectedPerson || selectedPerson === 'Select a person') {
+      return { personNotSelected: true };
+    }
+    return null;
+  }
 
   onSubmit(event: Event): void {
     event.preventDefault();
-    console.log("Validando...");
     if (this.projectForm.valid) {
-      console.log("Enviando al servidor...");
       const newProject: Project = {
         title: this.projectForm.value.title!,
         description: this.projectForm.value.description!,
@@ -33,9 +40,8 @@ export class ProjectFormComponent {
         status: this.projectForm.value.status as 'enabled' | 'disabled'
       }
       this.projectService.addProject(newProject);
-      console.log('Enviado');
+      this.router.navigate(['/']);
     } else {
-      console.log("Error campos faltantes.");
       this.projectForm.markAllAsTouched();
     }
   }

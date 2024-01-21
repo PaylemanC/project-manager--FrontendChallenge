@@ -1,30 +1,40 @@
 <form class="project-form" [formGroup]="projectForm" (ngSubmit)="onSubmit($event)">
   <div class="project-form__group project__name">
     <label for="title">Project name</label>
-    <input type="text" id="title" name="title" formControlName="title">
+    <div class="input-container">
+      <input type="text" id="title" name="title" formControlName="title" [ngClass]="{'error': projectForm.get('title')?.invalid && projectForm.get('title')?.touched}" >
+      <span *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched" class="error-icon"></span>
+    </div>
+    <p class="input-caption" *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched">Required field.</p>
   </div>
   <div class="project-form__group project__description">
     <label for="description">Description</label>
-    <input id="description" name="description" formControlName="description">
+    <div class="input-container">
+      <input id="description" name="description" formControlName="description" [ngClass]="{'error': projectForm.get('title')?.invalid && projectForm.get('title')?.touched}">
+      <span *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched" class="error-icon"></span>
+    </div>
+    <p class="input-caption" *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched">Required field.</p>
   </div>
   <div class="project-form__group project__manager">
     <label for="manager">Project manager</label>
-    <select id="manager" name="manager" formControlName="manager">
-      <option value="Select a person">Select a person</option>
+    <select id="manager" name="manager" formControlName="manager" [ngClass]="{'error': projectForm.get('manager')?.invalid && projectForm.get('manager')?.touched}">
+      <option value="" disabled selected>Select a person</option>
       <option value="Walt Cosani">Walt Cosani</option>
     </select>
+    <p class="input-caption" *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched">Select a project manager.</p>
   </div>
   <div class="project-form__group project__asigned">
-    <label for="asigned">Assigned to</label>
-    <select id="asigned" name="asigned" placeholder="Select a person" formControlName="assigned">
-      <option value="Select a person">Select a person</option>
+    <label for="assigned">Assigned to</label>
+    <select id="assigned" name="assigned" formControlName="assigned" [ngClass]="{'error': projectForm.get('assigned')?.invalid && projectForm.get('assigned')?.touched}">
+      <option value="" disabled selected>Select a person</option>
       <option value="Ignacio Truffa">Ignacio Truffa</option>
     </select>
+    <p *ngIf="projectForm.get('assigned')?.hasError('personNotSelected') && projectForm.get('assigned')?.touched" class="input-caption"> Select a person to assign.</p>
   </div>
   <div class="project-form__group project__status">
     <label for="status">Status</label>
     <select id="status" name="status" formControlName="status">
-      <option value="enabled">Enabled</option>
+      <option value="enabled" selected>Enabled</option>
       <option value="disabled">Disabled</option>
     </select>
   </div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Project } from 'src/app/models/project.model';
 
 @Component({
   selector: 'app-project-card',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class ProjectCardComponent {
   showMenu = false;
+  @Input() project: Project = {
+    title: '',
+    description: '',
+    creationDate: new Date(),
+    manager: '', 
+    assigned: '',
+    status: 'enabled'
+  }
 
   toggleMenu() {
     this.showMenu = !this.showMenu;

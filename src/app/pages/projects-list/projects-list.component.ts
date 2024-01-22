@@ -9,7 +9,6 @@ import { ProjectService } from 'src/app/services/project.service';
 })
 export class ProjectsListComponent {
   projects: Project[] = []
-  filteredProjects: Project[] = [];
   searchTerm: string = '';
 
   constructor(private projectService: ProjectService) { }
@@ -22,16 +21,11 @@ export class ProjectsListComponent {
         return dateB - dateA;
       });
     });
-    this.filterProjects();
   }
 
-  filterProjects() {
-    if (this.searchTerm.trim() === '') {
-      this.filteredProjects = [...this.projects];
-    } else {
-      this.filteredProjects = this.projects.filter(project =>
-        project.title.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    }
+  get filteredProjects(): Project[] {
+    return this.projects.filter(project =>
+      project.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 }

@@ -9,6 +9,7 @@ import { ProjectService } from 'src/app/services/project.service';
 })
 export class ProjectCardComponent {
   showMenu = false;
+  showConfirmationModal = false;
   @Input() project: Project = {
     id: '',
     title: '',
@@ -25,7 +26,17 @@ export class ProjectCardComponent {
     this.showMenu = !this.showMenu;
   }
 
+  confirmDelete() {
+    this.showConfirmationModal = true;
+    this.showMenu = false;
+  }
+
+  cancelDelete() {
+    this.showConfirmationModal = false;
+  }
+
   deleteProject() {
     this.projectService.deleteProject(this.project.id);
+    this.showConfirmationModal = false;
   }
 }

@@ -93,6 +93,52 @@
   }
 }
 
+.confirmation-modal {
+  position: absolute;
+  z-index: 1;
+  left: -250px;
+  box-shadow: $component-shadow;
+  background: white;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  line-height: 22px;
+  color: #595959;
+}
+
+.modal-icon {
+  @include images('../../../assets/icons/warning.svg', 16px, 16px)
+}
+
+.modal-caption {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-buttons--container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.modal-btn {
+  padding: 0 8px;
+  border-radius: 4px;
+}
+
+.secondary-btn {
+  border-radius: 4px;
+  border: 1px solid #D9D9D9;
+}
+
+.primary-btn {
+  background-color: $dust-red;
+  color: white;
+  border: none;
+}
+
 @media (max-width: 425px) {
   .project-card {
     display: grid;

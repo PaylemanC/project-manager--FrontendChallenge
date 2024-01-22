@@ -12,7 +12,14 @@
     </svg>
     <div *ngIf="showMenu" class="menu">
       <a [routerLink]="['/edit-project', project.id]" class="menu-edit"><span class="menu-edit--icon"></span>Edit</a>
-      <button type="button" class="menu-delete" (click)="deleteProject()"><span class="menu-delete--icon"></span>Delete</button>
+      <button type="button" class="menu-delete" (click)="confirmDelete()"><span class="menu-delete--icon"></span>Delete</button>
+    </div>
+    <div *ngIf="showConfirmationModal" class="confirmation-modal">
+      <p class="modal-caption"><span class="modal-icon"></span>Are you sure to delete "{{project.title}}"?</p>
+      <div class="modal-buttons--container">
+        <button type="button" (click)="cancelDelete()" class="modal-btn secondary-btn">No</button>
+        <button type="button" (click)="deleteProject()" class="modal-btn primary-btn">Yes</button>
+      </div>
     </div>
   </div>
 </div>

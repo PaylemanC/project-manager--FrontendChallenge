@@ -10,6 +10,7 @@ import { ProjectService } from 'src/app/services/project.service';
 export class ProjectsListComponent {
   projects: Project[] = []
   searchTerm: string = '';
+  pages: number = 1;
 
   constructor(private projectService: ProjectService) { }
 

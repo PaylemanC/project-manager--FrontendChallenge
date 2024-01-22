@@ -47,6 +47,19 @@
   line-height: 22px;
 }
 
+.pagination-controls {
+  font-size: 1.4rem;
+  .ngx-pagination .current {
+    background: $dust-red;
+  }
+}
+
+.pagination-controls ::ng-deep .ngx-pagination .current {
+  background: red;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
 @media (max-width: 425px) {
   .search-bar {
     margin: 4px 12px;

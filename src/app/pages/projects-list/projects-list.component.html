@@ -16,7 +16,8 @@
       <p class="projects-list__header-title">Action</p>
     </div>
     <div class="projects-list__body"  *ngIf="filteredProjects.length > 0">
-      <app-project-card *ngFor="let project of filteredProjects" [project]="project"></app-project-card>
+      <app-project-card *ngFor="let project of filteredProjects | paginate: { itemsPerPage: 2, currentPage: pages }" [project]="project"></app-project-card>
     </div>
   </section>
+  <pagination-controls (pageChange)="pages = $event" class="pagination-controls"></pagination-controls>
 </div>
